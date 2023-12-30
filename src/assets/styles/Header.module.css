@@ -1,0 +1,176 @@
+/* Section 1 styles*/
+.topContacts {
+    padding: 15px 0px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom_container {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+
+    @media (min-width: 576px) {
+        /* sm */
+        max-width: 540px;
+    }
+
+    @media (min-width: 768px) {
+        /* md */
+        max-width: 720px;
+    }
+
+    @media (min-width: 992px) {
+        /* lg */
+        max-width: 960px;
+    }
+
+    @media (min-width: 1200px) {
+        /* xl */
+        max-width: 1140px;
+    }
+
+
+}
+
+.contact_wrapper {
+    background-color: #04091e;
+}
+
+.icons {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.icons p {
+    margin: 0;
+}
+
+.icons p:hover {
+    color: red;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.contacts {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.contacts a {
+    font-size: small;
+    margin: 0;
+    text-decoration: none;
+    color:#fff;
+}
+
+.contacts a:hover {
+    color: red;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+/* Section 2 styles */
+.logo {
+    background-color: #fff;
+    padding: 1.2rem 0rem;
+}
+
+.logo h1 {
+    margin: 0;
+}
+
+
+/* Section 3 styles*/
+/* Dropdown Button */
+.dropbtn {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdownContent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdownContent a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+
+/* Show the dropdown menu on focus */
+.dropdown:focus-within .dropdownContent {
+    display: block;
+}
+
+/* Search Bar & Icon */
+.search {
+    position: relative;
+    display: inline-block;
+}
+
+.searchBar {
+    border: none;
+    padding: 8px;
+    margin-right: -32px;
+    transition: width 0.5s ease-out, margin 0.5s ease-out;
+    width: 0;
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search.open .searchBar {
+    width: 200px; /* Or as much as you need */
+    visibility: visible;
+    margin-right: 32px;
+}
+
+.searchIcon {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Responsive styles*/
+@media (max-width: 576px) {
+    
+    .contacts{
+        padding-right: 1rem;
+    }
+}
