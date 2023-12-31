@@ -1,4 +1,4 @@
-import React from "react"
+import { useState } from "react"
 import FacebookOutlinedIcon from '@mui/icons-material/Facebook'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import GitHubIcon from '@mui/icons-material/GitHub'
@@ -11,7 +11,10 @@ import EmailIcon from '@mui/icons-material/Email'
 
 const Header = () =>
 {
+    const [searchOpen, setSearchOpen] = useState(false)
     const isSmallScreen = useMediaQuery('(max-width:600px)')
+
+    const toggleSearch = () => setSearchOpen(!searchOpen)
 
     return (
         <div className={s.container}>
@@ -27,13 +30,13 @@ const Header = () =>
                     <div className={s.contacts}>
                         {isSmallScreen ? (
                             <>
-                                <p><PhoneIcon fontSize="small" /></p>
-                                <p><EmailIcon fontSize="small" /></p>
+                                <a href="tel:+37067850633"><PhoneIcon fontSize="small" /></a>
+                                <a href="mailto: sssgustavsss@gmail.com"><EmailIcon fontSize="small" /></a>
                             </>
                         ) : (
                             <>
-                                <p>+37067850633</p>
-                                <p>sssgustavsss@gmail.com</p>
+                                <a href="tel:+37067850633">+37067850633</a>
+                                <a href="mailto: sssgustavsss@gmail.com">sssgustavsss@gmail.com</a>
                             </>
                         )}
                     </div>
@@ -47,18 +50,31 @@ const Header = () =>
             </section>
 
             {/* Navigation bar */}
-            <Container className={s.stickyNav}>
+            <div className={`${s.stickyNav} ${s.custom_container}`}>
                 <nav className={s.mainNav}>
                     <a href="/">HOME</a>
                     <a href="/archive">ARCHIVE</a>
                     <a href="/category">CATEGORY</a>
-                    {/* Dropdown menu for Post Types */}
-                    <a href="/image">Image Post</a>
+                    {/* Dropdown */}
+                    <div className={s.dropdown}>
+                        <button className={s.dropbtn}>POST TYPES</button>
+                        <div className={s.dropdownContent}>
+                            <a href="/standard">Standard Post</a>
+                            <a href="/image">Image Post</a>
+                            <a href="/gallery">Gallery Post</a>
+                            <a href="/video">Video Post</a>
+                            <a href="/audio">Audio Post</a>
+                        </div>
+                    </div>
                     <a href="/about">ABOUT</a>
                     <a href="/contact">CONTACT</a>
-                    <SearchIcon className={s.searchIcon} />
+                    {/* Search bar */}
+                    <div className={searchOpen ? `${s.search} ${s.open}` : s.search}>
+                        <input type={searchOpen ? "text" : "hidden"} className={s.searchBar} />
+                        <SearchIcon className={s.searchIcon} onClick={toggleSearch} />
+                    </div>
                 </nav>
-            </Container>
+            </div>
         </div >
     )
 }
