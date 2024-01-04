@@ -1,0 +1,51 @@
+.custom_container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+    @media (min-width: 576px) {
+        /* sm */
+        max-width: 540px;
+    }
+
+    @media (min-width: 768px) {
+        /* md */
+        max-width: 720px;
+    }
+
+    @media (min-width: 992px) {
+        /* lg */
+        max-width: 960px;
+    }
+
+    @media (min-width: 1200px) {
+        /* xl */
+        max-width: 1140px;
+    }
+}
+
+.logo {
+    background-color: #fff;
+    padding: 1.2rem 0rem;
+}
+
+.logo h1 {
+    margin: 0;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.logoImage{
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Responsive design*/
+@media (max-width: 576px) {
+    .logoImage{
+        margin-left:1rem;
+    }
+}
