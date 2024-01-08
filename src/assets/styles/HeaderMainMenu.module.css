@@ -28,18 +28,31 @@
 .stickyNav {
     background-color: #04091e;
     position: relative;
+    display: flex;
+    justify-content: space-between;
 }
 
 .links {
     padding: 20px 20px;
 }
 
-.links a {
+.links a, p {
     padding: 0 8px;
     text-decoration: none;
     color: #fff;
     font-size: 12px;
     font-weight: 400;
+}
+
+.links p {
+    margin:0;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap:0.5rem;
+    cursor: pointer;
 }
 
 /* Dropdown */
@@ -95,3 +108,87 @@
     visibility: visible; 
     opacity: 1;
 }
+
+.drawerList {
+    width: 250px;
+    padding: 20px 10px;
+    background-color: #fff; 
+}
+
+.drawerList a {
+    text-decoration: none;
+    color: #333; 
+    padding: 10px 0;
+    display: block;
+    font-size: 16px;
+}
+
+.drawerList a:hover {
+    color: #04091e; 
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: #fff; 
+}
+
+.accordionButton {
+    padding: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordionContent {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.accordionContent.open {
+    max-height: 500px; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+.search {
+    position: relative;
+    display: inline-block;
+}
+
+.searchBar {
+    border: none;
+    padding: 8px;
+    transition: width 0.5s ease-out, margin 0.5s ease-out;
+    width: 0;
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search.open .searchBar {
+    width: 250px; 
+    visibility: visible;
+    margin-right: 3rem;
+}
+
+.searchIcon {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    margin-right:1rem;
+} 
