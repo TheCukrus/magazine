@@ -158,37 +158,75 @@
     padding-bottom: 10px;
 }
 
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        top: 15px;
+    }
+}
 
+
+
+.menuRightItems {
+    display: flex;
+    align-items: center;
+}
+
+.searchIcon, .searchActive {
+    cursor: pointer;
+    color: #fff;
+    margin-right: 1rem;
+    z-index: 11;
+}
 
 .search {
-    position: relative;
-    display: inline-block;
+    transition: width 0.5s ease-out;
+
+    position: absolute;
+    right: 0;
+    top: 0; /* Adjusted to align with the top */
+    transform: translateY(-100%); /* Start hidden above */
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    opacity: 0;
+    z-index: 10; /* Make sure it's above other content */
+
 }
 
 .searchBar {
     border: none;
     padding: 8px;
-    transition: width 0.5s ease-out, margin 0.5s ease-out;
     width: 0;
     visibility: hidden;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .search.open .searchBar {
-    width: 250px; 
+    width: 250px;
     visibility: visible;
     margin-right: 3rem;
+    outline: none;
 }
 
-.searchIcon {
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #fff;
-    margin-right:1rem;
-} 
+/* Add transitions to icons */
+.searchIcon svg, .searchActive svg {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Rotate close icon */
+.searchActive svg {
+    transform: rotate(180deg);
+}
+
+/* Hide the border of the input when focused */
+.searchBar:focus {
+    outline: none;
+    border: none;
+}
+
+.search.open {
+    animation: slideDown 0.5s forwards; /* Use the keyframes to slide down */
+}
